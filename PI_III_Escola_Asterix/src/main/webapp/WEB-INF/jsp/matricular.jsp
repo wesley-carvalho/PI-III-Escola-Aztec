@@ -66,8 +66,8 @@
                                 <div class="form-group col-md-6">
                                     <label for="pagamento" class="col-form-label">Pagamento:* </label>
                                     <select class="form-control" name="pagamento" required>
-                                        <option value="true">Pago</option>
-                                        <option value="false">Pendente</option>                                        
+                                        <option value="pago">Pago</option>
+                                        <option value="pendente">Pendente</option>                                        
                                     </select>
                                 </div>
                             </div>

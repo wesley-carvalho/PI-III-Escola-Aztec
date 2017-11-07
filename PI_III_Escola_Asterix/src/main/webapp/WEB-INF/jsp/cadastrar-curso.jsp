@@ -38,9 +38,9 @@
                                 <div class="form-group col-md-6">
                                     <label for="categoria" class="col-form-label">Categoria:* </label>
                                     <select class="form-control" name="categoria" required>
-                                        <option value="Curso Técnico">Curso Técnico</option>
-                                        <option value="Profissionalizante">Profissionalizante</option>
-                                        <option value="Educação a distância">Educação a distância</option>
+                                        <option value="curso tecnico">Curso Técnico</option>
+                                        <option value="profissionalizante">Profissionalizante</option>
+                                        <option value="educacao a distancia">Educação a distância</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
