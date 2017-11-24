@@ -29,38 +29,38 @@
 
                                 <div class="form-group col-md-12">
                                     <label for="nome" class="col-form-label">Nome:* </label>
-                                    <input type="text" name="nome" class="form-control" placeholder="Nome" value="<c:out value="${unidade.nome}" />" required>
+                                    <input type="text" name="nome" class="form-control" placeholder="Nome" maxlength="255" value="<c:out value="${unidade.nome}" />" required>
                                 </div>
 
                                 <div class="form-group col-md-12">
                                     <label for="endereco">Endereço:* </label>
-                                    <input type="text" name="endereco" class="form-control" placeholder="Rua Abacaxi Natal, 123" value="<c:out value="${unidade.endereco}" />" required>
+                                    <input type="text" name="endereco" class="form-control" placeholder="Rua Abacaxi Natal, 123" maxlength="255" value="<c:out value="${unidade.endereco}" />" required>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="cidade" class="col-form-label">Cidade:* </label>
-                                        <input type="text" name="cidade" class="form-control" placeholder="Cidade" value="<c:out value="${unidade.cidade}" />" required>
+                                        <input type="text" name="cidade" class="form-control" placeholder="Cidade" maxlength="255" value="<c:out value="${unidade.cidade}" />" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="estado" class="col-form-label">Estado:* </label>
-                                        <input type="text" name="estado" class="form-control" placeholder="Estado" value="<c:out value="${unidade.estado}" />" required>
+                                        <input type="text" name="estado" class="form-control" placeholder="Estado" maxlength="255" value="<c:out value="${unidade.estado}" />" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
                                     <label for="email">Email:* </label>
-                                    <input type="email" name="email" class="form-control" placeholder="email@email.com" value="<c:out value="${unidade.email}" />" required>
+                                    <input type="email" name="email" class="form-control" placeholder="email@email.com" maxlength="255" value="<c:out value="${unidade.email}" />" required>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="telefone1">Telefone 1:* </label>
-                                        <input type="tel" name="telefone1" class="form-control" placeholder="(11)1234-1234" value="<c:out value="${unidade.telefone1}" />" required>
+                                        <input type="tel" name="telefone1" class="form-control" placeholder="(11)1234-1234" maxlength="255" value="<c:out value="${unidade.telefone1}" />" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="telefone2">Telefone 2:* </label>
-                                        <input type="tel" name="telefone2" class="form-control" placeholder="(11)12345-1234" value="<c:out value="${unidade.telefone2}" />" required>
+                                        <input type="tel" name="telefone2" class="form-control" placeholder="(11)12345-1234" maxlength="255" value="<c:out value="${unidade.telefone2}" />" required>
                                     </div>
                                 </div>
 

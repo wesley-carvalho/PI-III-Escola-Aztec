@@ -26,13 +26,13 @@
                         <form data-toggle="validator" action="${pageContext.request.contextPath}/aluno_inserir" method="post">
                             <div class="form-group col-md-12">
                                 <label for="nome" class="col-form-label">Nome Completo:* </label>
-                                <input type="text" name="nome" class="form-control" placeholder="Nome Completo" required>
+                                <input type="text" name="nome" class="form-control" placeholder="Nome Completo" maxlength="255" required>
                             </div>                            
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="documento" class="col-form-label">Documento:* </label>
-                                    <input type="text" name="documento" class="form-control" placeholder="Documento" required>
+                                    <input type="text" name="documento" class="form-control" placeholder="Documento" maxlength="255" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="dtNascimento" class="col-form-label">Data de Nascimento:* </label>
@@ -42,33 +42,33 @@
 
                             <div class="form-group col-md-12">
                                 <label for="endereco">Endereço:* </label>
-                                <input type="text" name="endereco" class="form-control" placeholder="Rua Abacaxi Natal, 123" required>
+                                <input type="text" name="endereco" class="form-control" placeholder="Rua Abacaxi Natal, 123" maxlength="255" required>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="cidade" class="col-form-label">Cidade:* </label>
-                                    <input type="text" name="cidade" class="form-control" placeholder="Cidade" required>
+                                    <input type="text" name="cidade" class="form-control" placeholder="Cidade" maxlength="255" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="estado" class="col-form-label">Estado:* </label>
-                                    <input type="text" name="estado" class="form-control" placeholder="Estado" required>
+                                    <input type="text" name="estado" class="form-control" placeholder="Estado" maxlength="255" required>
                                 </div>
                             </div>
 
                             <div class="form-group col-md-12">
                                 <label for="email">Email:* </label>
-                                <input type="email" name="email" class="form-control" placeholder="email@email.com" required>
+                                <input type="email" name="email" class="form-control" placeholder="email@email.com" maxlength="255" required>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="telefone">Telefone:* </label>
-                                    <input type="tel" name="telefone" class="form-control" placeholder="(11)1234-1234" required>
+                                    <input type="tel" name="telefone" class="form-control" placeholder="(11)1234-1234" maxlength="255" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="celular">Celular: </label>
-                                    <input type="tel" name="celular" class="form-control" placeholder="(11)12345-1234">
+                                    <input type="tel" name="celular" class="form-control" placeholder="(11)12345-1234" maxlength="255">
                                 </div>
                             </div>
 

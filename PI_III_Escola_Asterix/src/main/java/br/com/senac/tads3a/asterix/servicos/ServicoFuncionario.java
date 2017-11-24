@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ServicoFuncionario {
 
-    public static void inserir(HttpServletRequest request, HttpServletResponse response) throws IOException {        
-        try {            
+    public static void inserir(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
             String nome = request.getParameter("nome");
             String documento = request.getParameter("documento");
             String dtNascimento = request.getParameter("dtNascimento");
@@ -23,13 +23,13 @@ public class ServicoFuncionario {
             String cidade = request.getParameter("cidade");
             String estado = request.getParameter("estado");
             String email = request.getParameter("email");
-            String cargo = request.getParameter("cargo");            
+            String cargo = request.getParameter("cargo");
             String username = request.getParameter("username");
-            String password = request.getParameter("password");            
+            String password = request.getParameter("password");
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
             Date nascimento = new Date(sdf.parse(dtNascimento).getTime());
-            
+
             Funcionario funcionario = new Funcionario(nome, documento, nascimento, endereco, cidade, estado, email, cargo, username, password);
 
             ValidadorFuncionario.validar(funcionario);
@@ -38,6 +38,7 @@ public class ServicoFuncionario {
 
             response.sendRedirect(request.getContextPath() + "/success");
         } catch (ClassNotFoundException | IllegalArgumentException | SQLException | ParseException e) {
+            e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error");
         }
     }
@@ -52,7 +53,7 @@ public class ServicoFuncionario {
             String cidade = request.getParameter("cidade");
             String estado = request.getParameter("estado");
             String email = request.getParameter("email");
-            String cargo = request.getParameter("cargo");            
+            String cargo = request.getParameter("cargo");
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             String dtCadastro = request.getParameter("cadastro");
@@ -69,6 +70,7 @@ public class ServicoFuncionario {
 
             response.sendRedirect(request.getContextPath() + "/success");
         } catch (ClassNotFoundException | IllegalArgumentException | SQLException | ParseException e) {
+            e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error");
         }
     }
@@ -77,6 +79,7 @@ public class ServicoFuncionario {
         try {
             return DaoFuncionario.procurar(nomeFunc);
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -85,6 +88,7 @@ public class ServicoFuncionario {
         try {
             return DaoFuncionario.listar();
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -93,6 +97,7 @@ public class ServicoFuncionario {
         try {
             return DaoFuncionario.obter(id);
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -101,6 +106,7 @@ public class ServicoFuncionario {
         try {
             return DaoFuncionario.obterUser(username);
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -111,6 +117,7 @@ public class ServicoFuncionario {
 
             return true;
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return false;
         }
     }

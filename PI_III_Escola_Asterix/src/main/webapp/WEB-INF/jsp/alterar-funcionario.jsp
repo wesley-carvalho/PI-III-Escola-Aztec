@@ -30,13 +30,13 @@
 
                                 <div class="form-group col-md-12">
                                     <label for="nome" class="col-form-label">Nome Completo:* </label>
-                                    <input type="text" name="nome" class="form-control" placeholder="Nome Completo" value="<c:out value="${funcionario.nome}" />" required>
+                                    <input type="text" name="nome" class="form-control" placeholder="Nome Completo" maxlength="255" value="<c:out value="${funcionario.nome}" />" required>
                                 </div>                           
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="documento" class="col-form-label">Documento:* </label>
-                                        <input type="text" name="documento" class="form-control" placeholder="Documento" value="<c:out value="${funcionario.documento}" />" required>
+                                        <input type="text" name="documento" class="form-control" placeholder="Documento" maxlength="255" value="<c:out value="${funcionario.documento}" />" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="dtNascimento" class="col-form-label">Data de Nascimento:* </label>
@@ -46,23 +46,23 @@
 
                                 <div class="form-group col-md-12">
                                     <label for="endereco">Endereço:* </label>
-                                    <input type="text" name="endereco" class="form-control" placeholder="Rua Abacaxi Natal, 123" value="<c:out value="${funcionario.endereco}" />" required>
+                                    <input type="text" name="endereco" class="form-control" placeholder="Rua Abacaxi Natal, 123" maxlength="255" value="<c:out value="${funcionario.endereco}" />" required>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="cidade" class="col-form-label">Cidade:* </label>
-                                        <input type="text" name="cidade" class="form-control" placeholder="Cidade" value="<c:out value="${funcionario.cidade}" />" required>
+                                        <input type="text" name="cidade" class="form-control" placeholder="Cidade" maxlength="255" value="<c:out value="${funcionario.cidade}" />" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="estado" class="col-form-label">Estado:* </label>
-                                        <input type="text" name="estado" class="form-control" placeholder="Estado" value="<c:out value="${funcionario.estado}" />" required>
+                                        <input type="text" name="estado" class="form-control" placeholder="Estado" maxlength="255" value="<c:out value="${funcionario.estado}" />" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
                                     <label for="email">Email:* </label>
-                                    <input type="email" name="email" class="form-control" placeholder="email@email.com" value="<c:out value="${funcionario.email}" />" required>
+                                    <input type="email" name="email" class="form-control" placeholder="email@email.com" maxlength="255" value="<c:out value="${funcionario.email}" />" required>
                                 </div>
 
                                 <div class="form-group col-md-12">
@@ -82,11 +82,11 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="username">Username:* </label>
-                                        <input type="text" name="username" class="form-control" placeholder="Username" value="<c:out value="${funcionario.username}" />" required>
+                                        <input type="text" name="username" class="form-control" placeholder="Username" maxlength="255" value="<c:out value="${funcionario.username}" />" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="password">Password:* </label>
-                                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                        <input type="password" name="password" class="form-control" placeholder="Password" maxlength="10" required>
                                     </div>
                                 </div>
 

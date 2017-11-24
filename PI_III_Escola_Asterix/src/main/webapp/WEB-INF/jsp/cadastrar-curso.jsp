@@ -26,12 +26,12 @@
                         <form data-toggle="validator"  action="${pageContext.request.contextPath}/curso_inserir" method="post">
                             <div class="form-group col-md-12">
                                 <label for="nome" class="col-form-label">Nome:* </label>
-                                <input type="text" name="nome" class="form-control" placeholder="Nome" required>
+                                <input type="text" name="nome" class="form-control" placeholder="Nome" maxlength="255" required>
                             </div>
 
                             <div class="form-group col-md-12">
                                 <label for="descrição" class="col-form-label">Descrição: </label>
-                                <textarea rows="3" name="descricao" class="form-control" placeholder="Descrição"></textarea>
+                                <textarea rows="3" name="descricao" class="form-control" placeholder="Descrição" maxlength="255"></textarea>
                             </div>
 
                             <div class="form-row">
@@ -47,7 +47,7 @@
                                     <label for="valor" class="col-form-label">Valor:* </label>
                                     <div class="input-group">
                                         <span class="input-group-addon">R$</span>
-                                        <input type="text" name="valor" class="form-control" placeholder="1234,00" required>
+                                        <input type="text" name="valor" class="form-control" placeholder="1234,00"  required>
                                     </div>
                                 </div>
                             </div>

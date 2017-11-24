@@ -39,6 +39,7 @@ public class ServicoAluno {
 
             response.sendRedirect(request.getContextPath() + "/success");
         } catch (ClassNotFoundException | IllegalArgumentException | SQLException | ParseException e) {
+            e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error");
         }
     }
@@ -70,6 +71,7 @@ public class ServicoAluno {
 
             response.sendRedirect(request.getContextPath() + "/success");            
         } catch (ClassNotFoundException | IllegalArgumentException | SQLException | ParseException e) {
+            e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error");
         }
     }
@@ -78,6 +80,7 @@ public class ServicoAluno {
         try {
             return DaoAluno.procurar(nomeAluno);
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -86,6 +89,7 @@ public class ServicoAluno {
         try {
             return DaoAluno.listar();
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -94,6 +98,7 @@ public class ServicoAluno {
         try {
             return DaoAluno.obter(id);
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -104,6 +109,7 @@ public class ServicoAluno {
 
             return true;
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return false;
         }
     }

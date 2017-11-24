@@ -40,6 +40,7 @@ public class ServicoMatricula {
             
             response.sendRedirect(request.getContextPath() + "/success");
         } catch (ClassNotFoundException | IllegalArgumentException | SQLException | ParseException e) {
+            e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error");
         }
     }
@@ -69,6 +70,7 @@ public class ServicoMatricula {
             
             response.sendRedirect(request.getContextPath() + "/success");
         } catch (ClassNotFoundException | IllegalArgumentException | SQLException | ParseException e) {
+            e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error");
         }
     }    
@@ -77,6 +79,7 @@ public class ServicoMatricula {
         try {
             return DaoMatricula.procurar(alunoID);
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -85,6 +88,7 @@ public class ServicoMatricula {
         try {
             return DaoMatricula.listar();
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -93,6 +97,7 @@ public class ServicoMatricula {
         try {
             return DaoMatricula.obter(id);
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -103,6 +108,7 @@ public class ServicoMatricula {
             
             return true;
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return false;
         }
     }

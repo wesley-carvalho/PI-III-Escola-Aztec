@@ -31,6 +31,7 @@ public class ServicoCurso {
 
             response.sendRedirect(request.getContextPath() + "/success");
         } catch (ClassNotFoundException | IllegalArgumentException | SQLException e) {
+            e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error");
         }
     }
@@ -55,6 +56,7 @@ public class ServicoCurso {
 
             response.sendRedirect(request.getContextPath() + "/success");
         } catch (ClassNotFoundException | IllegalArgumentException | SQLException | ParseException e) {
+            e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error");
         }
     }
@@ -63,6 +65,7 @@ public class ServicoCurso {
         try {
             return DaoCurso.procurar(nomeCurso);
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -71,6 +74,7 @@ public class ServicoCurso {
         try {
             return DaoCurso.listar();
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -79,6 +83,7 @@ public class ServicoCurso {
         try {
             return DaoCurso.obter(id);
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -89,6 +94,7 @@ public class ServicoCurso {
 
             return true;
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return false;
         }
     }

@@ -32,6 +32,7 @@ public class ServicoUnidade {
             
             response.sendRedirect(request.getContextPath() + "/success");
         } catch (ClassNotFoundException | IllegalArgumentException | SQLException e) {
+            e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error");
         }
     }
@@ -59,6 +60,7 @@ public class ServicoUnidade {
             
             response.sendRedirect(request.getContextPath() + "/success");
         } catch (ClassNotFoundException | IllegalArgumentException | SQLException | ParseException e) {
+            e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error");
         }
     }
@@ -67,6 +69,7 @@ public class ServicoUnidade {
         try {
             return DaoUnidade.procurar(nomeUnidade);
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -75,6 +78,7 @@ public class ServicoUnidade {
         try {
             return DaoUnidade.listar();
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -83,6 +87,7 @@ public class ServicoUnidade {
         try {
             return DaoUnidade.obter(id);
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -93,6 +98,7 @@ public class ServicoUnidade {
             
             return true;
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             return false;
         }
     }
