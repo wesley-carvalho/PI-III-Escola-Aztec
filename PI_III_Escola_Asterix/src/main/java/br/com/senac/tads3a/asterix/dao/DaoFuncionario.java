@@ -3,10 +3,11 @@ package br.com.senac.tads3a.asterix.dao;
 import br.com.senac.tads3a.asterix.classes.Funcionario;
 import br.com.senac.tads3a.asterix.utils.ConnectionUtils;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.LinkedList;
 
 public class DaoFuncionario {
@@ -15,8 +16,8 @@ public class DaoFuncionario {
             throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO funcionario (nome, documento, dtNascimento, "
                 + "endereco, cidade, estado, email, cargo, username, hashsenha, "
-                + "dtCadastro, enabled) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "cadastradoPor, cadastradoEm, enabled) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         Connection connection = null;
 
@@ -28,7 +29,7 @@ public class DaoFuncionario {
 
             preparedStatement.setString(1, funcionario.getNome());
             preparedStatement.setString(2, funcionario.getDocumento());
-            preparedStatement.setDate(3, new Date(funcionario.getNascimento().getTime()));
+            preparedStatement.setTimestamp(3, new Timestamp(funcionario.getNascimento().getTime()));
             preparedStatement.setString(4, funcionario.getEndereco());
             preparedStatement.setString(5, funcionario.getCidade());
             preparedStatement.setString(6, funcionario.getEstado());
@@ -36,8 +37,9 @@ public class DaoFuncionario {
             preparedStatement.setString(8, funcionario.getCargo());            
             preparedStatement.setString(9, funcionario.getUsername());
             preparedStatement.setString(10, funcionario.getHashSenha());
-            preparedStatement.setDate(11, new Date(System.currentTimeMillis()));
-            preparedStatement.setBoolean(12, true);
+            preparedStatement.setString(11, funcionario.getCadastradoPor());
+            preparedStatement.setTimestamp(12, new Timestamp(System.currentTimeMillis()));
+            preparedStatement.setBoolean(13, true);
 
             preparedStatement.execute();
         } finally {
@@ -54,7 +56,7 @@ public class DaoFuncionario {
             throws SQLException, ClassNotFoundException {
         String sql = "UPDATE funcionario SET nome=?, documento=?, dtNascimento=?, "
                 + "endereco=?, cidade=?, estado=?, email=?, cargo=?, username=?, "
-                + "hashsenha=? WHERE (funcionario.id=?)";
+                + "hashsenha=?, cadastradoPor=?, cadastradoEm=? WHERE (funcionario.id=?)";
 
         Connection connection = null;
 
@@ -66,7 +68,7 @@ public class DaoFuncionario {
 
             preparedStatement.setString(1, funcionario.getNome());
             preparedStatement.setString(2, funcionario.getDocumento());
-            preparedStatement.setDate(3, new Date(funcionario.getNascimento().getTime()));
+            preparedStatement.setTimestamp(3, new Timestamp(funcionario.getNascimento().getTime()));
             preparedStatement.setString(4, funcionario.getEndereco());
             preparedStatement.setString(5, funcionario.getCidade());
             preparedStatement.setString(6, funcionario.getEstado());
@@ -74,7 +76,9 @@ public class DaoFuncionario {
             preparedStatement.setString(8, funcionario.getCargo());            
             preparedStatement.setString(9, funcionario.getUsername());
             preparedStatement.setString(10, funcionario.getHashSenha());
-            preparedStatement.setLong(11, funcionario.getId());
+            preparedStatement.setString(11, funcionario.getCadastradoPor());
+            preparedStatement.setTimestamp(12, new Timestamp(System.currentTimeMillis()));
+            preparedStatement.setLong(13, funcionario.getId());
 
             preparedStatement.execute();
         } finally {
@@ -115,8 +119,8 @@ public class DaoFuncionario {
                 Funcionario funcionario = new Funcionario();
                 funcionario.setId(result.getInt("id"));
                 funcionario.setNome(result.getString("nome"));
-                funcionario.setDocumento(result.getString("documento"));
-                funcionario.setNascimento(result.getDate("dtNascimento"));
+                funcionario.setDocumento(result.getString("documento"));                
+                funcionario.setNascimento(new Date(result.getTimestamp("dtNascimento").getTime()));
                 funcionario.setEndereco(result.getString("endereco"));
                 funcionario.setCidade(result.getString("cidade"));
                 funcionario.setEstado(result.getString("estado"));
@@ -124,7 +128,8 @@ public class DaoFuncionario {
                 funcionario.setCargo(result.getString("cargo"));                
                 funcionario.setUsername(result.getString("username"));
                 funcionario.setHashSenha(result.getString("hashsenha"));
-                funcionario.setCadastro(result.getDate("dtCadastro"));
+                funcionario.setCadastradoPor(result.getString("cadastradoPor"));                
+                funcionario.setCadastradoEm(new Date(result.getTimestamp("cadastradoEm").getTime()));
 
                 listaFuncionarios.add(funcionario);
             }
@@ -171,7 +176,7 @@ public class DaoFuncionario {
                 funcionario.setId(result.getInt("id"));
                 funcionario.setNome(result.getString("nome"));
                 funcionario.setDocumento(result.getString("documento"));
-                funcionario.setNascimento(result.getDate("dtNascimento"));
+                funcionario.setNascimento(new Date(result.getTimestamp("dtNascimento").getTime()));
                 funcionario.setEndereco(result.getString("endereco"));
                 funcionario.setCidade(result.getString("cidade"));
                 funcionario.setEstado(result.getString("estado"));
@@ -179,7 +184,8 @@ public class DaoFuncionario {
                 funcionario.setCargo(result.getString("cargo"));                
                 funcionario.setUsername(result.getString("username"));
                 funcionario.setHashSenha(result.getString("hashsenha"));
-                funcionario.setCadastro(result.getDate("dtCadastro"));
+                funcionario.setCadastradoPor(result.getString("cadastradoPor"));
+                funcionario.setCadastradoEm(new Date(result.getTimestamp("cadastradoEm").getTime()));
 
                 listaFuncionarios.add(funcionario);
             }
@@ -222,7 +228,7 @@ public class DaoFuncionario {
                 funcionario.setId(result.getInt("id"));
                 funcionario.setNome(result.getString("nome")); 
                 funcionario.setDocumento(result.getString("documento"));
-                funcionario.setNascimento(result.getDate("dtNascimento"));
+                funcionario.setNascimento(new Date(result.getTimestamp("dtNascimento").getTime()));
                 funcionario.setEndereco(result.getString("endereco"));
                 funcionario.setCidade(result.getString("cidade"));
                 funcionario.setEstado(result.getString("estado"));
@@ -230,7 +236,8 @@ public class DaoFuncionario {
                 funcionario.setCargo(result.getString("cargo"));                
                 funcionario.setUsername(result.getString("username"));
                 funcionario.setHashSenha(result.getString("hashsenha"));
-                funcionario.setCadastro(result.getDate("dtCadastro"));
+                funcionario.setCadastradoPor(result.getString("cadastradoPor"));
+                funcionario.setCadastradoEm(new Date(result.getTimestamp("cadastradoEm").getTime()));
 
                 return funcionario;
             }
@@ -271,7 +278,7 @@ public class DaoFuncionario {
                 funcionario.setId(result.getInt("id"));
                 funcionario.setNome(result.getString("nome")); 
                 funcionario.setDocumento(result.getString("documento"));
-                funcionario.setNascimento(result.getDate("dtNascimento"));
+                funcionario.setNascimento(new Date(result.getTimestamp("dtNascimento").getTime()));
                 funcionario.setEndereco(result.getString("endereco"));
                 funcionario.setCidade(result.getString("cidade"));
                 funcionario.setEstado(result.getString("estado"));
@@ -279,7 +286,8 @@ public class DaoFuncionario {
                 funcionario.setCargo(result.getString("cargo"));                
                 funcionario.setUsername(result.getString("username"));
                 funcionario.setHashSenha(result.getString("hashsenha"));
-                funcionario.setCadastro(result.getDate("dtCadastro"));
+                funcionario.setCadastradoPor(result.getString("cadastradoPor"));
+                funcionario.setCadastradoEm(new Date(result.getTimestamp("cadastradoEm").getTime()));
 
                 return funcionario;
             }

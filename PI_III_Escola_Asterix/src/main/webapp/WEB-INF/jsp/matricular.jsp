@@ -24,6 +24,8 @@
 
                     <div class="row">
                         <form data-toggle="validator" action="${pageContext.request.contextPath}/matricula_inserir" method="post">
+                            <input type="hidden" name="cadastradoPor" value="<c:out value="${sessionScope.funcionario.username}" />">
+                            
                             <div class="form-group col-md-12">
                                 <label for="aluno" class="col-form-label">Nome do aluno:* </label>
                                 <select class="form-control" name="aluno" required>

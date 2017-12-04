@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -46,8 +47,9 @@
                                         <th>#</th>
                                         <th>Nome</th>                                    
                                         <th>Documento</th>
-                                        <th>Nascimento</th>                                    
-                                        <th>Cadastro</th>
+                                        <th>Nascimento</th>
+                                        <th>Cadastrado por</th>
+                                        <th>Cadastrado em</th>
                                     </tr>
                                 </thead>
                                 <tbody>                                
@@ -55,20 +57,21 @@
                                         <tr>
                                             <td><c:out value="${aluno.id}" /></td>
                                             <td><c:out value="${aluno.nome}" /></td>
-                                            <td><c:out value="${aluno.documento}" /></td>
-                                            <td><c:out value="${aluno.nascimento}" /></td>
-                                            <td><c:out value="${aluno.cadastro}" /></td>
+                                            <td><c:out value="${aluno.documento}" /></td>                                            
+                                            <td><fmt:formatDate pattern = "dd/MM/yyyy" value = "${aluno.nascimento}" /></td>
+                                            <td><c:out value="${aluno.cadastradoPor}" /></td>
+                                            <td><fmt:formatDate pattern = "dd/MM/yyyy HH:mm:ss" value = "${aluno.cadastradoEm}" /></td>                                            
                                             <td>
                                                 <form action="${pageContext.request.contextPath}/aluno_alterar" method="post">
                                                     <input type="hidden" name="alunoId" value="<c:out value="${aluno.id}" />">
-                                                    
+
                                                     <button class="btn btn-xs btn-warning" type="submit"><spam class="glyphicon glyphicon-pencil"></spam></button>
                                                 </form>                                                                                               
                                             </td>
                                             <td>
                                                 <form action="${pageContext.request.contextPath}/aluno_excluir" method="post">
                                                     <input type="hidden" name="alunoId" value="<c:out value="${aluno.id}" />">
-                                                    
+
                                                     <button class="btn btn-xs btn-danger" type="submit"><spam class="glyphicon glyphicon-remove"></spam></button>
                                                 </form>
                                             </td> 

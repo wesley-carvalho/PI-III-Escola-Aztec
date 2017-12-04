@@ -13,12 +13,14 @@
     </head>
     <body>
         <c:import url="cabecalho.jsp" />
-
-        <div class="container">
-            <div class="jumbotron">
+               
+        <div class="jumbotron">
+            <div class="container">
                 <h1><spam class="glyphicon glyphicon-ban-circle"></spam> Acesso negado!</h1>
-            </div>
-        </div><!--/.container-->
+                <p class="navbar-left">Retornar ao menu principal</p>
+                <p class="navbar-right form-row col-md-2"><a class="btn btn-primary btn-group-justified" href="${pageContext.request.contextPath}/home" role="button">ok</a></p>
+            </div><!--/.container-->            
+        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>

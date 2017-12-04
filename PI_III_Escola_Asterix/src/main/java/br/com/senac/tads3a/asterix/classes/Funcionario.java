@@ -1,6 +1,6 @@
 package br.com.senac.tads3a.asterix.classes;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Arrays;
 import java.util.List;
 import org.mindrot.jbcrypt.BCrypt;
@@ -18,7 +18,8 @@ public final class Funcionario {
     private String cargo;
     private String username;
     private String hashSenha;
-    private Date cadastro;
+    private String cadastradoPor;
+    private Date cadastradoEm;
 
     public Funcionario() {
     }
@@ -32,7 +33,7 @@ public final class Funcionario {
 
     public Funcionario(String nome, String documento, Date nascimento, 
             String endereco, String cidade, String estado, String email, 
-            String cargo, String username, String senha) {
+            String cargo, String username, String senha, String cadastradoPor) {
         this.nome = nome;
         this.documento = documento;
         this.nascimento = nascimento;
@@ -43,11 +44,10 @@ public final class Funcionario {
         this.cargo = cargo;
         this.username = username;
         setSenha(senha);
+        this.cadastradoPor = cadastradoPor;
     }
 
-    public Funcionario(int id, String nome, String documento, Date nascimento, 
-            String endereco, String cidade, String estado, String email, 
-            String cargo, String username, String senha, Date cadastro) {
+    public Funcionario(int id, String nome, String documento, Date nascimento, String endereco, String cidade, String estado, String email, String cargo, String username, String senha, String cadastradoPor) {
         this.id = id;
         this.nome = nome;
         this.documento = documento;
@@ -59,8 +59,8 @@ public final class Funcionario {
         this.cargo = cargo;
         this.username = username;
         setSenha(senha);
-        this.cadastro = cadastro;
-    }
+        this.cadastradoPor = cadastradoPor;        
+    }    
 
     public int getId() {
         return id;
@@ -150,13 +150,21 @@ public final class Funcionario {
         this.hashSenha = hashSenha;
     }
 
-    public Date getCadastro() {
-        return cadastro;
+    public String getCadastradoPor() {
+        return cadastradoPor;
     }
 
-    public void setCadastro(Date cadastro) {
-        this.cadastro = cadastro;
+    public void setCadastradoPor(String cadastradoPor) {
+        this.cadastradoPor = cadastradoPor;
     }
+
+    public Date getCadastradoEm() {
+        return cadastradoEm;
+    }
+
+    public void setCadastradoEm(Date cadastradoEm) {
+        this.cadastradoEm = cadastradoEm;
+    }    
 
     public void setSenha(String senhaAberta) {
         this.hashSenha = BCrypt.hashpw(senhaAberta, BCrypt.gensalt());

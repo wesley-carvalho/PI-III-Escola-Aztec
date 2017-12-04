@@ -3,10 +3,11 @@ package br.com.senac.tads3a.asterix.dao;
 import br.com.senac.tads3a.asterix.classes.Curso;
 import br.com.senac.tads3a.asterix.utils.ConnectionUtils;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class DaoCurso {
     public static void inserir(Curso curso) 
             throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO curso (nome, categoria, descricao, valor, "
-                + "dtCadastro, enabled) VALUES (?, ?, ?, ?, ?, ?)";
+                + "cadastradoPor, cadastradoEm, enabled) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         Connection connection = null;
 
@@ -29,8 +30,9 @@ public class DaoCurso {
             preparedStatement.setString(2, curso.getCategoria());
             preparedStatement.setString(3, curso.getDescricao());
             preparedStatement.setBigDecimal(4, curso.getValor());
-            preparedStatement.setDate(5, new Date(System.currentTimeMillis()));
-            preparedStatement.setBoolean(6, true);
+            preparedStatement.setString(5, curso.getCadastradoPor());
+            preparedStatement.setTimestamp(6, new Timestamp(System.currentTimeMillis()));
+            preparedStatement.setBoolean(7, true);
 
             preparedStatement.execute();
         } finally {
@@ -46,7 +48,7 @@ public class DaoCurso {
     public static void atualizar(Curso curso) 
             throws SQLException, ClassNotFoundException {
         String sql = "UPDATE curso SET nome=?, categoria=?, descricao=?,"
-                + " valor=? WHERE (curso.id=?)";
+                + " valor=?, cadastradoPor=?, cadastradoEm=? WHERE (curso.id=?)";
 
         Connection connection = null;
 
@@ -59,8 +61,10 @@ public class DaoCurso {
             preparedStatement.setString(1, curso.getNome());
             preparedStatement.setString(2, curso.getCategoria());
             preparedStatement.setString(3, curso.getDescricao());
-            preparedStatement.setBigDecimal(4, curso.getValor());            
-            preparedStatement.setInt(5, curso.getId());
+            preparedStatement.setBigDecimal(4, curso.getValor());
+            preparedStatement.setString(5, curso.getCadastradoPor());
+            preparedStatement.setTimestamp(6, new Timestamp(System.currentTimeMillis()));
+            preparedStatement.setInt(7, curso.getId());
 
             preparedStatement.execute();
         } finally {
@@ -105,7 +109,8 @@ public class DaoCurso {
                 curso.setCategoria(result.getString("categoria"));
                 curso.setDescricao(result.getString("descricao"));
                 curso.setValor(result.getBigDecimal("valor"));
-                curso.setCadastro(result.getDate("dtCadastro"));                
+                curso.setCadastradoPor(result.getString("cadastradoPor"));                
+                curso.setCadastradoEm(new Date(result.getTimestamp("cadastradoEm").getTime()));                
 
                 listaCursos.add(curso);
             }
@@ -156,7 +161,8 @@ public class DaoCurso {
                 curso.setCategoria(result.getString("categoria"));
                 curso.setDescricao(result.getString("descricao"));
                 curso.setValor(result.getBigDecimal("valor"));
-                curso.setCadastro(result.getDate("dtCadastro"));                
+                curso.setCadastradoPor(result.getString("cadastradoPor"));
+                curso.setCadastradoEm(new Date(result.getTimestamp("cadastradoEm").getTime()));                    
 
                 listaCursos.add(curso);
             }
@@ -201,7 +207,8 @@ public class DaoCurso {
                 curso.setCategoria(result.getString("categoria"));
                 curso.setDescricao(result.getString("descricao"));
                 curso.setValor(result.getBigDecimal("valor"));
-                curso.setCadastro(result.getDate("dtCadastro"));
+                curso.setCadastradoPor(result.getString("cadastradoPor"));
+                curso.setCadastradoEm(new Date(result.getTimestamp("cadastradoEm").getTime()));
 
                 return curso;
             }

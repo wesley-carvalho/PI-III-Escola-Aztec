@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,7 +34,8 @@
                                     <th>Curso</th>
                                     <th>Inicio</th>
                                     <th>Pagamento</th>
-                                    <th>Cadastro</th>
+                                    <th>Matriculado por</th>
+                                    <th>Matriculado em</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,10 +44,11 @@
                                         <td><c:out value="${matr.id}" /></td>
                                         <td><c:out value="${matr.aluno.nome}" /></td>
                                         <td><c:out value="${matr.unidade.nome}" /></td>
-                                        <td><c:out value="${matr.curso.nome}" /></td>
-                                        <td><c:out value="${matr.inicio}" /></td>
+                                        <td><c:out value="${matr.curso.nome}" /></td>                                        
+                                        <td><fmt:formatDate pattern = "dd/MM/yyyy" value = "${matr.inicio}" /></td>
                                         <td><c:out value="${matr.pagamento}" /></td>
-                                        <td><c:out value="${matr.cadastro}" /></td>
+                                        <td><c:out value="${matr.cadastradoPor}" /></td>                                        
+                                        <td><fmt:formatDate pattern = "dd/MM/yyyy HH:mm:ss" value = "${matr.cadastradoEm}" /></td>
                                     </tr>
                                 </c:forEach>      
                             </tbody>

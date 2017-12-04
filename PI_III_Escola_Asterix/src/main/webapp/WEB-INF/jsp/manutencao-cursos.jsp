@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -47,7 +48,8 @@
                                         <th>Nome</th>
                                         <th>Categoria</th>
                                         <th>Valor</th>
-                                        <th>Cadastro</th>
+                                        <th>Cadastrado por</th>
+                                        <th>Cadastrado em</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -57,7 +59,8 @@
                                             <td><c:out value="${curso.nome}" /></td>
                                             <td><c:out value="${curso.categoria}" /></td>
                                             <td><c:out value="${curso.valor}" /></td>
-                                            <td><c:out value="${curso.cadastro}" /></td>
+                                            <td><c:out value="${curso.cadastradoPor}" /></td>                                            
+                                            <td><fmt:formatDate pattern = "dd/MM/yyyy HH:mm:ss" value = "${curso.cadastradoEm}" /></td>
                                             <td>
                                                 <form action="${pageContext.request.contextPath}/curso_alterar" method="post">
                                                     <input type="hidden" name="cursoId" value="<c:out value="${curso.id}" />">

@@ -28,11 +28,12 @@ public class ServicoMatricula {
             Curso curso = ServicoCurso.obter(idCurso);
             String dtInicio = request.getParameter("dtInicio");
             String pagamento = request.getParameter("pagamento");
+            String cadastradoPor = request.getParameter("cadastradoPor");
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
             Date data = new Date(sdf.parse(dtInicio).getTime());
             
-            Matricula matricula = new Matricula(aluno, unidade, curso, data, pagamento);
+            Matricula matricula = new Matricula(aluno, unidade, curso, data, pagamento, cadastradoPor);
             
             ValidadorMatricula.validar(matricula);
 
@@ -56,13 +57,12 @@ public class ServicoMatricula {
             Curso curso = ServicoCurso.obter(idCurso);
             String dtInicio = request.getParameter("dtInicio");
             String pagamento = request.getParameter("pagamento");
-            String dtCadastro = request.getParameter("cadastro");
+            String cadastradoPor = request.getParameter("cadastradoPor");            
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-            Date inicio = new Date(sdf.parse(dtInicio).getTime());
-            Date cadastro = new Date(sdf.parse(dtCadastro).getTime());
+            Date inicio = new Date(sdf.parse(dtInicio).getTime());            
             
-            Matricula matricula = new Matricula(id, aluno, unidade, curso, inicio, pagamento, cadastro);
+            Matricula matricula = new Matricula(id, aluno, unidade, curso, inicio, pagamento, cadastradoPor);
             
             ValidadorMatricula.validar(matricula);
 

@@ -1,7 +1,7 @@
-Thu Nov 23 22:17:15 BRST 2017 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+Mon Dec 04 12:59:35 BRST 2017 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
 ----------------------------------------------------------------
-Thu Nov 23 22:17:16 BRST 2017:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-015f-eb62-a4cf-00005148ee0b
+Mon Dec 04 12:59:35 BRST 2017:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0160-220a-0606-00005148ee0b
 no diretório de banco de dados C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database\AsterixDB 
 
 java.vendor=Oracle Corporation
@@ -13,12 +13,12 @@ os.version=10.0
 derby.system.home=C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database
 Carregador de classe do banco de dados iniciado - derby.database.classpath=''
 ----------------------------------------------------------------
-Thu Nov 23 22:17:17 BRST 2017:
-Encerrando a instância a816c00e-015f-eb62-a4cf-00005148ee0b
-Thu Nov 23 22:17:17 BRST 2017 Thread[DRDAConnThread_3,5,main] (DATABASE = AsterixDB), (DRDAID = {2}), Banco de dados 'AsterixDB' fechado.
+Mon Dec 04 13:00:32 BRST 2017:
+Encerrando a instância a816c00e-0160-220a-0606-00005148ee0b
+Mon Dec 04 13:00:32 BRST 2017 Thread[DRDAConnThread_3,5,main] (DATABASE = AsterixDB), (DRDAID = {2}), Banco de dados 'AsterixDB' fechado.
 ----------------------------------------------------------------
-Thu Nov 23 22:17:29 BRST 2017:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância 560740aa-015f-eb62-a4cf-00005148ee0b
+Mon Dec 04 13:00:55 BRST 2017:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância f7fd413a-0160-220a-0606-00005148ee0b
 no diretório de banco de dados C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database\AsterixDB 
 
 java.vendor=Oracle Corporation
@@ -29,3 +29,90 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database
 Carregador de classe do banco de dados iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Dec 04 13:00:56 BRST 2017:
+Encerrando a instância f7fd413a-0160-220a-0606-00005148ee0b
+Mon Dec 04 13:00:56 BRST 2017 Thread[DRDAConnThread_3,5,main] (DATABASE = AsterixDB), (DRDAID = {4}), Banco de dados 'AsterixDB' fechado.
+----------------------------------------------------------------
+Mon Dec 04 13:00:59 BRST 2017:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância d3a1c1d6-0160-220a-0606-00005148ee0b
+no diretório de banco de dados C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database\AsterixDB 
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_152-b16
+user.dir=C:\Program Files\glassfish-4.1.1\javadb
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database
+Carregador de classe do banco de dados iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Dec 04 13:03:19 BRST 2017:
+Encerrando a instância d3a1c1d6-0160-220a-0606-00005148ee0b
+Mon Dec 04 13:03:19 BRST 2017 Thread[DRDAConnThread_4,5,main] (DATABASE = AsterixDB), (DRDAID = {6}), Banco de dados 'AsterixDB' fechado.
+----------------------------------------------------------------
+Mon Dec 04 13:03:57 BRST 2017:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância 7cb34237-0160-220a-0606-00005148ee0b
+no diretório de banco de dados C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database\AsterixDB 
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_152-b16
+user.dir=C:\Program Files\glassfish-4.1.1\javadb
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database
+Carregador de classe do banco de dados iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Dec 04 13:03:58 BRST 2017:
+Encerrando a instância 7cb34237-0160-220a-0606-00005148ee0b
+Mon Dec 04 13:03:58 BRST 2017 Thread[DRDAConnThread_4,5,main] (DATABASE = AsterixDB), (DRDAID = {8}), Banco de dados 'AsterixDB' fechado.
+----------------------------------------------------------------
+Mon Dec 04 13:04:01 BRST 2017:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância 9ee2c2d3-0160-220a-0606-00005148ee0b
+no diretório de banco de dados C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database\AsterixDB 
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_152-b16
+user.dir=C:\Program Files\glassfish-4.1.1\javadb
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database
+Carregador de classe do banco de dados iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Dec 04 16:05:06 BRST 2017:
+Encerrando a instância 9ee2c2d3-0160-220a-0606-00005148ee0b
+Mon Dec 04 16:05:06 BRST 2017 Thread[DRDAConnThread_6,5,main] (DATABASE = AsterixDB), (DRDAID = {119}), Banco de dados 'AsterixDB' fechado.
+----------------------------------------------------------------
+Mon Dec 04 16:05:39 BRST 2017:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância 08900481-0160-220a-0606-00005148ee0b
+no diretório de banco de dados C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database\AsterixDB 
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_152-b16
+user.dir=C:\Program Files\glassfish-4.1.1\javadb
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database
+Carregador de classe do banco de dados iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Dec 04 16:05:40 BRST 2017:
+Encerrando a instância 08900481-0160-220a-0606-00005148ee0b
+Mon Dec 04 16:05:40 BRST 2017 Thread[DRDAConnThread_7,5,main] (DATABASE = AsterixDB), (DRDAID = {121}), Banco de dados 'AsterixDB' fechado.
+----------------------------------------------------------------
+Mon Dec 04 16:05:58 BRST 2017:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância 0405851d-0160-220a-0606-00005148ee0b
+no diretório de banco de dados C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database\AsterixDB 
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_152-b16
+user.dir=C:\Program Files\glassfish-4.1.1\javadb
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\wesle\OneDrive\Documentos\NetBeansProjects\PI-III-Escola-Aztec\PI_III_Escola_Asterix\src\main\database
+Carregador de classe do banco de dados iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Dec 04 16:29:12 BRST 2017: Shutting down Derby engine

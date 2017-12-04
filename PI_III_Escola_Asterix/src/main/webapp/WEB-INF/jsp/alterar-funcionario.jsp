@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,7 +27,8 @@
                         <div class="row">
                             <form data-toggle="validator" action="${pageContext.request.contextPath}/funcionario_atualizar" method="post">
                                 <input type="hidden" name="id" value="<c:out value="${funcionario.id}" />">
-                                <input type="hidden" name="cadastro" value="<c:out value="${funcionario.cadastro}" />">
+                                <input type="hidden" name="cadastradoPor" value="<c:out value="${sessionScope.funcionario.username}" />">
+                                <input type="hidden" name="cadastradoEm" value="<c:out value="${funcionario.cadastradoEm}" />">
 
                                 <div class="form-group col-md-12">
                                     <label for="nome" class="col-form-label">Nome Completo:* </label>
@@ -40,7 +42,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="dtNascimento" class="col-form-label">Data de Nascimento:* </label>
-                                        <input type="date" name="dtNascimento" class="form-control" min="1901-01-01" max="2017-12-31" value="<c:out value="${funcionario.nascimento}" />"required>
+                                        <input type="date" name="dtNascimento" class="form-control" min="1901-01-01" max="2017-12-31" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${funcionario.nascimento}" />"required>
                                     </div>
                                 </div>
 

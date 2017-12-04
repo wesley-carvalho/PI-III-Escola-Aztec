@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,7 +30,8 @@
                                 <input type="hidden" name="aluno" value="<c:out value="${matricula.aluno.id}" />">
                                 <input type="hidden" name="unidade" value="<c:out value="${matricula.unidade.id}" />">
                                 <input type="hidden" name="curso" value="<c:out value="${matricula.curso.id}" />">
-                                <input type="hidden" name="cadastro" value="<c:out value="${matricula.cadastro}" />">
+                                <input type="hidden" name="cadastradoPor" value="<c:out value="${sessionScope.funcionario.username}" />">
+                                <input type="hidden" name="cadastradoEm" value="<c:out value="${matricula.cadastradoEm}" />">
 
 
                                 <div class="form-group col-md-12">
@@ -51,7 +53,7 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="dtInicio" class="col-form-label">Data de inicio:* </label>
-                                        <input type="date" name="dtInicio" class="form-control" min="2017-01-01" max="2018-12-31" value="<c:out value="${matricula.inicio}" />" required>
+                                        <input type="date" name="dtInicio" class="form-control" min="2017-01-01" max="2018-12-31" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${matricula.inicio}" />" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="pagamento" class="col-form-label">Pagamento:* </label>                                        

@@ -4,17 +4,15 @@ import br.com.senac.tads3a.asterix.classes.Unidade;
 import br.com.senac.tads3a.asterix.dao.DaoUnidade;
 import br.com.senac.tads3a.asterix.validadores.ValidadorUnidade;
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ServicoUnidade {
-    public static void inserir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+    public static void inserir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String nome = request.getParameter("nome");
             String endereco = request.getParameter("endereco");
@@ -23,13 +21,14 @@ public class ServicoUnidade {
             String email = request.getParameter("email");
             String telefone1 = request.getParameter("telefone1");
             String telefone2 = request.getParameter("telefone2");
-            
-            Unidade unidade = new Unidade(nome, endereco, cidade, estado, email, telefone1, telefone2);
-            
+            String cadastradoPor = request.getParameter("cadastradoPor");
+
+            Unidade unidade = new Unidade(nome, endereco, cidade, estado, email, telefone1, telefone2, cadastradoPor);
+
             ValidadorUnidade.validar(unidade);
 
             DaoUnidade.inserir(unidade);
-            
+
             response.sendRedirect(request.getContextPath() + "/success");
         } catch (ClassNotFoundException | IllegalArgumentException | SQLException e) {
             e.printStackTrace();
@@ -47,19 +46,16 @@ public class ServicoUnidade {
             String email = request.getParameter("email");
             String telefone1 = request.getParameter("telefone1");
             String telefone2 = request.getParameter("telefone2");
-            String dtCadastro = request.getParameter("cadastro");
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String cadastradoPor = request.getParameter("cadastradoPor");
 
-            Date cadastro = new Date(sdf.parse(dtCadastro).getTime());
+            Unidade unidade = new Unidade(id, nome, endereco, cidade, estado, email, telefone1, telefone2, cadastradoPor);
 
-            Unidade unidade = new Unidade(id, nome, endereco, cidade, estado, email, telefone1, telefone2, cadastro);
-            
             ValidadorUnidade.validar(unidade);
 
             DaoUnidade.atualizar(unidade);
-            
+
             response.sendRedirect(request.getContextPath() + "/success");
-        } catch (ClassNotFoundException | IllegalArgumentException | SQLException | ParseException e) {
+        } catch (ClassNotFoundException | IllegalArgumentException | SQLException e) {
             e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error");
         }
@@ -73,8 +69,8 @@ public class ServicoUnidade {
             return null;
         }
     }
-    
-    public static List<Unidade> listar(){
+
+    public static List<Unidade> listar() {
         try {
             return DaoUnidade.listar();
         } catch (ClassNotFoundException | SQLException e) {
@@ -95,7 +91,7 @@ public class ServicoUnidade {
     public static boolean excluir(int id) {
         try {
             DaoUnidade.excluir(id);
-            
+
             return true;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

@@ -22,7 +22,9 @@
                     </div>
 
                     <div class="row">
-                        <form data-toggle="validator" action="${pageContext.request.contextPath}/unidade_inserir" method="post">                           
+                        <form data-toggle="validator" action="${pageContext.request.contextPath}/unidade_inserir" method="post">
+                            <input type="hidden" name="cadastradoPor" value="<c:out value="${sessionScope.funcionario.username}" />">
+                            
                             <div class="form-group col-md-12">
                                 <label for="nome" class="col-form-label">Nome:* </label>
                                 <input type="text" name="nome" class="form-control" placeholder="Nome" maxlength="255" required>

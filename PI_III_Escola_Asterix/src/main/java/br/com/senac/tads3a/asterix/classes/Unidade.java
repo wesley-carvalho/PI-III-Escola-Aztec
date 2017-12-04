@@ -1,6 +1,6 @@
 package br.com.senac.tads3a.asterix.classes;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Unidade {
 
@@ -12,13 +12,14 @@ public class Unidade {
     private String email;
     private String telefone1;
     private String telefone2;
-    private Date cadastro;
+    private String cadastradoPor;
+    private Date cadastradoEm;
 
     public Unidade() {
     }
 
     public Unidade(String nome, String endereco, String cidade,
-            String estado, String email, String telefone1, String telefone2) {
+            String estado, String email, String telefone1, String telefone2, String cadastradoPor) {
         this.nome = nome;
         this.endereco = endereco;
         this.cidade = cidade;
@@ -26,9 +27,10 @@ public class Unidade {
         this.email = email;
         this.telefone1 = telefone1;
         this.telefone2 = telefone2;
+        this.cadastradoPor = cadastradoPor;
     }
 
-    public Unidade(int id, String nome, String endereco, String cidade, String estado, String email, String telefone1, String telefone2, Date cadastro) {
+    public Unidade(int id, String nome, String endereco, String cidade, String estado, String email, String telefone1, String telefone2, String cadastradoPor) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
@@ -37,8 +39,8 @@ public class Unidade {
         this.email = email;
         this.telefone1 = telefone1;
         this.telefone2 = telefone2;
-        this.cadastro = cadastro;
-    }
+        this.cadastradoPor = cadastradoPor;        
+    }    
 
     public int getId() {
         return id;
@@ -102,13 +104,21 @@ public class Unidade {
 
     public void setTelefone2(String telefone2) {
         this.telefone2 = telefone2;
+    }   
+
+    public String getCadastradoPor() {
+        return cadastradoPor;
     }
 
-    public Date getCadastro() {
-        return cadastro;
+    public void setCadastradoPor(String cadastradoPor) {
+        this.cadastradoPor = cadastradoPor;
     }
 
-    public void setCadastro(Date cadastro) {
-        this.cadastro = cadastro;
+    public Date getCadastradoEm() {
+        return cadastradoEm;
+    }
+
+    public void setCadastradoEm(Date cadastradoEm) {
+        this.cadastradoEm = cadastradoEm;
     }
 }

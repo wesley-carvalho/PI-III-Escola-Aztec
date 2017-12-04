@@ -15,7 +15,7 @@
             <form class="navbar-form navbar-right" action="${pageContext.request.contextPath}/logout">            
                 <button type="submit" class="btn btn-danger">Logout</button>
             </form>
-            <p class="navbar-text navbar-right">Funcionário logado: <c:out value="${sessionScope.funcionario.nome}" /></p>
+            <p class="navbar-text navbar-right"><c:out value="${sessionScope.funcionario.cargo}" /> logado: <c:out value="${sessionScope.funcionario.nome}" /></p>
         </div><!--/.navbar-collapse -->
     </div><!-- /.container -->
 </nav><!-- /.navbar -->

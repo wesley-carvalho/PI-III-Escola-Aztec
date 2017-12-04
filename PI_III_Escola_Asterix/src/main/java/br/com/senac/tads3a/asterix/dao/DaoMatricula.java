@@ -6,10 +6,11 @@ import br.com.senac.tads3a.asterix.servicos.ServicoCurso;
 import br.com.senac.tads3a.asterix.servicos.ServicoUnidade;
 import br.com.senac.tads3a.asterix.utils.ConnectionUtils;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class DaoMatricula {
     public static void inserir(Matricula matricula)
             throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO matricula (idAluno, idUnidade, idCurso, dtInicio, "
-                + "pagamento, dtCadastro, enabled) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                + "pagamento, cadastradoPor, cadastradoEm, enabled) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         Connection connection = null;
 
@@ -31,10 +32,11 @@ public class DaoMatricula {
             preparedStatement.setInt(1, matricula.getAluno().getId());
             preparedStatement.setInt(2, matricula.getUnidade().getId());
             preparedStatement.setInt(3, matricula.getCurso().getId());
-            preparedStatement.setDate(4, new Date(matricula.getInicio().getTime()));
+            preparedStatement.setTimestamp(4, new Timestamp(matricula.getInicio().getTime()));
             preparedStatement.setString(5, matricula.getPagamento());
-            preparedStatement.setDate(6, new Date(System.currentTimeMillis()));
-            preparedStatement.setBoolean(7, true);
+            preparedStatement.setString(6, matricula.getCadastradoPor());
+            preparedStatement.setTimestamp(7, new Timestamp(System.currentTimeMillis()));
+            preparedStatement.setBoolean(8, true);
 
             preparedStatement.execute();
         } finally {
@@ -50,7 +52,7 @@ public class DaoMatricula {
     public static void atualizar(Matricula matricula)
             throws SQLException, ClassNotFoundException {
         String sql = "UPDATE matricula SET idAluno=?, idUnidade=?, idCurso=?,"
-                + " dtInicio=?, pagamento=? WHERE (matricula.idMatricula=?)";
+                + " dtInicio=?, pagamento=?, cadastradoPor=?, cadastradoEm=? WHERE (matricula.idMatricula=?)";
 
         Connection connection = null;
 
@@ -63,9 +65,11 @@ public class DaoMatricula {
             preparedStatement.setInt(1, matricula.getAluno().getId());
             preparedStatement.setInt(2, matricula.getUnidade().getId());
             preparedStatement.setInt(3, matricula.getCurso().getId());
-            preparedStatement.setDate(4, new Date(matricula.getInicio().getTime()));
+            preparedStatement.setTimestamp(4, new Timestamp(matricula.getInicio().getTime()));
             preparedStatement.setString(5, matricula.getPagamento());
-            preparedStatement.setInt(6, matricula.getId());
+            preparedStatement.setString(6, matricula.getCadastradoPor());
+            preparedStatement.setTimestamp(7, new Timestamp(System.currentTimeMillis()));
+            preparedStatement.setInt(8, matricula.getId());
 
             preparedStatement.execute();
         } finally {
@@ -106,10 +110,11 @@ public class DaoMatricula {
                 matricula.setId(result.getInt("idMatricula"));
                 matricula.setAluno(ServicoAluno.obter(result.getInt("idAluno")));
                 matricula.setUnidade(ServicoUnidade.obter(result.getInt("idUnidade")));
-                matricula.setCurso(ServicoCurso.obter(result.getInt("idCurso")));
-                matricula.setInicio(result.getDate("dtInicio"));
+                matricula.setCurso(ServicoCurso.obter(result.getInt("idCurso")));                
+                matricula.setInicio(new Date(result.getTimestamp("dtInicio").getTime()));
                 matricula.setPagamento(result.getString("pagamento"));
-                matricula.setCadastro(result.getDate("dtCadastro"));
+                matricula.setCadastradoPor(result.getString("cadastradoPor"));                
+                matricula.setCadastradoEm(new Date(result.getTimestamp("cadastradoEm").getTime()));
 
                 listaMatriculas.add(matricula);
             }
@@ -156,9 +161,10 @@ public class DaoMatricula {
                 matricula.setAluno(ServicoAluno.obter(result.getInt("idAluno")));
                 matricula.setUnidade(ServicoUnidade.obter(result.getInt("idUnidade")));
                 matricula.setCurso(ServicoCurso.obter(result.getInt("idCurso")));
-                matricula.setInicio(result.getDate("dtInicio"));
+                matricula.setInicio(new Date(result.getTimestamp("dtInicio").getTime()));
                 matricula.setPagamento(result.getString("pagamento"));
-                matricula.setCadastro(result.getDate("dtCadastro"));
+                matricula.setCadastradoPor(result.getString("cadastradoPor"));
+                matricula.setCadastradoEm(new Date(result.getTimestamp("cadastradoEm").getTime()));
 
                 listaMatriculas.add(matricula);
             }
@@ -202,9 +208,10 @@ public class DaoMatricula {
                 matricula.setAluno(ServicoAluno.obter(result.getInt("idAluno")));
                 matricula.setUnidade(ServicoUnidade.obter(result.getInt("idUnidade")));
                 matricula.setCurso(ServicoCurso.obter(result.getInt("idCurso")));
-                matricula.setInicio(result.getDate("dtInicio"));
+                matricula.setInicio(new Date(result.getTimestamp("dtInicio").getTime()));
                 matricula.setPagamento(result.getString("pagamento"));
-                matricula.setCadastro(result.getDate("dtCadastro"));
+                matricula.setCadastradoPor(result.getString("cadastradoPor"));
+                matricula.setCadastradoEm(new Date(result.getTimestamp("cadastradoEm").getTime()));
 
                 return matricula;
             }

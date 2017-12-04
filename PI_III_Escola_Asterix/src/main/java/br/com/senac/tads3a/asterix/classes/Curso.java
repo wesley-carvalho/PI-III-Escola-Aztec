@@ -1,7 +1,7 @@
 package br.com.senac.tads3a.asterix.classes;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 
 public class Curso {
 
@@ -10,28 +10,30 @@ public class Curso {
     private String categoria;
     private String descricao;
     private BigDecimal valor;
-    private Date cadastro;
+    private String cadastradoPor;
+    private Date cadastradoEm;
 
     public Curso() {
 
     }
 
     public Curso(String nome, String categoria, String descricao,
-            BigDecimal valor) {
+            BigDecimal valor, String cadastradoPor) {
         this.nome = nome;
         this.categoria = categoria;
         this.descricao = descricao;
         this.valor = valor;
+        this.cadastradoPor = cadastradoPor;
     }
 
-    public Curso(int id, String nome, String categoria, String descricao, BigDecimal valor, Date cadastro) {
+    public Curso(int id, String nome, String categoria, String descricao, BigDecimal valor, String cadastradoPor) {
         this.id = id;
         this.nome = nome;
         this.categoria = categoria;
         this.descricao = descricao;
         this.valor = valor;
-        this.cadastro = cadastro;
-    }
+        this.cadastradoPor = cadastradoPor;        
+    }    
 
     public int getId() {
         return id;
@@ -73,11 +75,19 @@ public class Curso {
         this.valor = valor;
     }
 
-    public Date getCadastro() {
-        return cadastro;
+    public String getCadastradoPor() {
+        return cadastradoPor;
     }
 
-    public void setCadastro(Date cadastro) {
-        this.cadastro = cadastro;
+    public void setCadastradoPor(String cadastradoPor) {
+        this.cadastradoPor = cadastradoPor;
     }
+
+    public Date getCadastradoEm() {
+        return cadastradoEm;
+    }
+
+    public void setCadastradoEm(Date cadastradoEm) {
+        this.cadastradoEm = cadastradoEm;
+    }    
 }

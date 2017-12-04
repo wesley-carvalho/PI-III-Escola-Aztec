@@ -24,6 +24,8 @@
 
                     <div class="row">
                         <form data-toggle="validator" action="${pageContext.request.contextPath}/funcionario_inserir" method="post">
+                            <input type="hidden" name="cadastradoPor" value="<c:out value="${sessionScope.funcionario.username}" />">
+                            
                             <div class="form-group col-md-12">
                                 <label for="nome" class="col-form-label">Nome Completo:* </label>
                                 <input type="text" name="nome" class="form-control" placeholder="Nome Completo" maxlength="255" required>

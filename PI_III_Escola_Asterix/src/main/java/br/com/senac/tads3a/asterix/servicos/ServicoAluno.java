@@ -26,12 +26,13 @@ public class ServicoAluno {
             String email = request.getParameter("email");
             String telefone = request.getParameter("telefone");
             String celular = request.getParameter("celular");
+            String cadastradoPor = request.getParameter("cadastradoPor");
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
             Date data = new Date(sdf.parse(dtNascimento).getTime());
 
             Aluno aluno = new Aluno(nome, documento, data, endereco, cidade,
-                    estado, email, telefone, celular);
+                    estado, email, telefone, celular, cadastradoPor);
 
             ValidadorAluno.validar(aluno);
 
@@ -56,14 +57,13 @@ public class ServicoAluno {
             String email = request.getParameter("email");
             String telefone = request.getParameter("telefone");
             String celular = request.getParameter("celular");
-            String dtCadastro = request.getParameter("cadastro");
+            String cadastradoPor = request.getParameter("cadastradoPor");            
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-            Date nascimento = new Date(sdf.parse(dtNascimento).getTime());
-            Date cadastro = new Date(sdf.parse(dtCadastro).getTime());
+            Date nascimento = new Date(sdf.parse(dtNascimento).getTime());            
 
             Aluno aluno = new Aluno(id, nome, documento, nascimento, endereco, 
-                    cidade, estado, email, telefone, celular, cadastro);
+                    cidade, estado, email, telefone, celular, cadastradoPor);
 
             ValidadorAluno.validar(aluno);
 

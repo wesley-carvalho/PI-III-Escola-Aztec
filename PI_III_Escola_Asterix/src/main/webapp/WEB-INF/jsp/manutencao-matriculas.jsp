@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,7 +49,8 @@
                                         <th>Unidade</th>
                                         <th>Curso</th>
                                         <th>Inicio</th>                                        
-                                        <th>Cadastro</th>
+                                        <th>Matriculado por</th>
+                                        <th>Matriculado em</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -57,9 +59,10 @@
                                             <td><c:out value="${matricula.id}" /></td>
                                             <td><c:out value="${matricula.aluno.nome}" /></td>
                                             <td><c:out value="${matricula.unidade.nome}" /></td>
-                                            <td><c:out value="${matricula.curso.nome}" /></td>
-                                            <td><c:out value="${matricula.inicio}" /></td>                                            
-                                            <td><c:out value="${matricula.cadastro}" /></td>
+                                            <td><c:out value="${matricula.curso.nome}" /></td>                                            
+                                            <td><fmt:formatDate pattern = "dd/MM/yyyy" value = "${matricula.inicio}" /></td>
+                                            <td><c:out value="${matricula.cadastradoPor}" /></td>                                            
+                                            <td><fmt:formatDate pattern = "dd/MM/yyyy HH:mm:ss" value = "${matricula.cadastradoEm}" /></td>
                                             <td>
                                                 <form action="${pageContext.request.contextPath}/matricula_alterar" method="post">
                                                     <input type="hidden" name="matriculaId" value="<c:out value="${matricula.id}" />">

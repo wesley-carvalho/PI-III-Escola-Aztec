@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,7 +27,8 @@
                         <div class="row">
                             <form data-toggle="validator"  action="${pageContext.request.contextPath}/curso_atualizar" method="post">
                                 <input type="hidden" name="id" value="<c:out value="${curso.id}" />">
-                                <input type="hidden" name="cadastro" value="<c:out value="${curso.cadastro}" />">
+                                <input type="hidden" name="cadastradoPor" value="<c:out value="${sessionScope.funcionario.username}" />">
+                                <input type="hidden" name="cadastradoEm" value="<c:out value="${curso.cadastradoEm}" />">
 
                                 <div class="form-group col-md-12">
                                     <label for="nome" class="col-form-label">Nome:* </label>

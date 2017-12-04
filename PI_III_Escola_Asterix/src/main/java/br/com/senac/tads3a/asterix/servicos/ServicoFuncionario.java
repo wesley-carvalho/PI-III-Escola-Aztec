@@ -26,11 +26,12 @@ public class ServicoFuncionario {
             String cargo = request.getParameter("cargo");
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            String cadastradoPor = request.getParameter("cadastradoPor");
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
             Date nascimento = new Date(sdf.parse(dtNascimento).getTime());
 
-            Funcionario funcionario = new Funcionario(nome, documento, nascimento, endereco, cidade, estado, email, cargo, username, password);
+            Funcionario funcionario = new Funcionario(nome, documento, nascimento, endereco, cidade, estado, email, cargo, username, password, cadastradoPor);
 
             ValidadorFuncionario.validar(funcionario);
 
@@ -56,13 +57,12 @@ public class ServicoFuncionario {
             String cargo = request.getParameter("cargo");
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            String dtCadastro = request.getParameter("cadastro");
+            String cadastradoPor = request.getParameter("cadastradoPor");            
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-            Date nascimento = new Date(sdf.parse(dtNascimento).getTime());
-            Date cadastro = new Date(sdf.parse(dtCadastro).getTime());
+            Date nascimento = new Date(sdf.parse(dtNascimento).getTime());            
 
-            Funcionario funcionario = new Funcionario(id, nome, documento, nascimento, endereco, cidade, estado, email, cargo, username, password, cadastro);
+            Funcionario funcionario = new Funcionario(id, nome, documento, nascimento, endereco, cidade, estado, email, cargo, username, password, cadastradoPor);
 
             ValidadorFuncionario.validar(funcionario);
 

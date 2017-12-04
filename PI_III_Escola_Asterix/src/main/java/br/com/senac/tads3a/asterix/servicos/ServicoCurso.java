@@ -5,10 +5,7 @@ import br.com.senac.tads3a.asterix.dao.DaoCurso;
 import br.com.senac.tads3a.asterix.validadores.ValidadorCurso;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +19,9 @@ public class ServicoCurso {
             String categoria = request.getParameter("categoria");
             String descricao = request.getParameter("descricao");
             String valor = request.getParameter("valor");
+            String cadastradoPor = request.getParameter("cadastradoPor");
 
-            Curso curso = new Curso(nome, categoria, descricao, new BigDecimal(valor));
+            Curso curso = new Curso(nome, categoria, descricao, new BigDecimal(valor), cadastradoPor);
 
             ValidadorCurso.validar(curso);
 
@@ -43,19 +41,16 @@ public class ServicoCurso {
             String categoria = request.getParameter("categoria");
             String descricao = request.getParameter("descricao");
             String valor = request.getParameter("valor");
-            String dtCadastro = request.getParameter("cadastro");
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            
-            Date cadastro = new Date(sdf.parse(dtCadastro).getTime());
+            String cadastradoPor = request.getParameter("cadastradoPor");            
 
-            Curso curso = new Curso(id, nome, categoria, descricao, new BigDecimal(valor), cadastro);
-            
+            Curso curso = new Curso(id, nome, categoria, descricao, new BigDecimal(valor), cadastradoPor);
+
             ValidadorCurso.validar(curso);
 
             DaoCurso.atualizar(curso);
 
             response.sendRedirect(request.getContextPath() + "/success");
-        } catch (ClassNotFoundException | IllegalArgumentException | SQLException | ParseException e) {
+        } catch (ClassNotFoundException | IllegalArgumentException | SQLException e) {
             e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error");
         }
