@@ -70,7 +70,7 @@ public class ServletCurso extends HttpServlet {
                 rd.forward(request, response);
                 break;
             case "/curso_excluir":
-                cursoID = Integer.parseInt(request.getParameter("cursoId"));
+                cursoID = Integer.parseInt(request.getParameter("id"));
 
                 boolean resp = ServicoCurso.excluir(cursoID);
 

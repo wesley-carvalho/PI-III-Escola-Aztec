@@ -118,6 +118,13 @@ public class Authorization {
                     return true;
                 }
                 break;
+            case "/delete":
+                if (funcionario.temPapel("gerente de ti")
+                        || funcionario.temPapel("gerente de vendas")
+                        || funcionario.temPapel("gerente de retaguarda")) {
+                    return true;
+                }
+                break;
         }
         return false;
     }

@@ -69,8 +69,9 @@
                                                 </form>                                                                                               
                                             </td>
                                             <td>
-                                                <form action="${pageContext.request.contextPath}/aluno_excluir" method="post">
-                                                    <input type="hidden" name="alunoId" value="<c:out value="${aluno.id}" />">
+                                                <form action="${pageContext.request.contextPath}/delete" method="post">
+                                                    <input type="hidden" name="way" value="/aluno_excluir">
+                                                    <input type="hidden" name="id" value="<c:out value="${aluno.id}" />">                                                    
 
                                                     <button class="btn btn-xs btn-danger" type="submit"><spam class="glyphicon glyphicon-remove"></spam></button>
                                                 </form>

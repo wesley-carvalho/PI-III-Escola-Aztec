@@ -70,7 +70,7 @@ public class ServletUnidade extends HttpServlet {
                 rd.forward(request, response);
                 break;
             case "/unidade_excluir":
-                unidadeID = Integer.parseInt(request.getParameter("unidadeId"));
+                unidadeID = Integer.parseInt(request.getParameter("id"));
 
                 boolean resp = ServicoUnidade.excluir(unidadeID);
 

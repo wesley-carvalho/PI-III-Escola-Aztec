@@ -64,14 +64,15 @@
                                             <td>
                                                 <form action="${pageContext.request.contextPath}/curso_alterar" method="post">
                                                     <input type="hidden" name="cursoId" value="<c:out value="${curso.id}" />">
-                                                    
+
                                                     <button class="btn btn-xs btn-warning" type="submit"><spam class="glyphicon glyphicon-pencil"></spam></button>
                                                 </form>                                                                                               
                                             </td>
                                             <td>
-                                                <form action="${pageContext.request.contextPath}/curso_excluir" method="post">
-                                                    <input type="hidden" name="cursoId" value="<c:out value="${curso.id}" />">
-                                                    
+                                                <form action="${pageContext.request.contextPath}/delete" method="post">
+                                                    <input type="hidden" name="way" value="/curso_excluir">
+                                                    <input type="hidden" name="id" value="<c:out value="${curso.id}" />">                                                    
+
                                                     <button class="btn btn-xs btn-danger" type="submit"><spam class="glyphicon glyphicon-remove"></spam></button>
                                                 </form>
                                             </td> 

@@ -70,9 +70,10 @@
                                                     <button class="btn btn-xs btn-warning" type="submit"><spam class="glyphicon glyphicon-pencil"></spam></button>
                                                 </form>                                                                                               
                                             </td>
-                                            <td>
-                                                <form action="${pageContext.request.contextPath}/matricula_excluir" method="post">
-                                                    <input type="hidden" name="matriculaId" value="<c:out value="${matricula.id}" />">
+                                            <td>                                                
+                                                <form action="${pageContext.request.contextPath}/delete" method="post">
+                                                    <input type="hidden" name="way" value="/matricula_excluir">
+                                                    <input type="hidden" name="id" value="<c:out value="${matricula.id}" />">                                                    
 
                                                     <button class="btn btn-xs btn-danger" type="submit"><spam class="glyphicon glyphicon-remove"></spam></button>
                                                 </form>

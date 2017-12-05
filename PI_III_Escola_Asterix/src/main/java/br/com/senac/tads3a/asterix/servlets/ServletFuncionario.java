@@ -70,7 +70,7 @@ public class ServletFuncionario extends HttpServlet {
                 rd.forward(request, response);
                 break;
             case "/funcionario_excluir":
-                funcionarioID = Integer.parseInt(request.getParameter("funcionarioId"));
+                funcionarioID = Integer.parseInt(request.getParameter("id"));
 
                 boolean resp = ServicoFuncionario.excluir(funcionarioID);
 

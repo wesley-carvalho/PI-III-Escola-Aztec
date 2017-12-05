@@ -18,47 +18,62 @@
         <div class="container">
             <div class="row row-offcanvas row-offcanvas-right">
                 <div class="col-xs-12 col-sm-9">
-
                     <div class="jumbotron">
                         <h1>Relatório Semanal de Matrículas</h1>
-                    </div>
-
-                    <h2 class="sub-header">Matrículas</h2>
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Aluno</th>
-                                    <th>Unidade</th>
-                                    <th>Curso</th>
-                                    <th>Inicio</th>
-                                    <th>Pagamento</th>
-                                    <th>Matriculado por</th>
-                                    <th>Matriculado em</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${matriculas}" var="matr">                                
-                                    <tr>
-                                        <td><c:out value="${matr.id}" /></td>
-                                        <td><c:out value="${matr.aluno.nome}" /></td>
-                                        <td><c:out value="${matr.unidade.nome}" /></td>
-                                        <td><c:out value="${matr.curso.nome}" /></td>                                        
-                                        <td><fmt:formatDate pattern = "dd/MM/yyyy" value = "${matr.inicio}" /></td>
-                                        <td><c:out value="${matr.pagamento}" /></td>
-                                        <td><c:out value="${matr.cadastradoPor}" /></td>                                        
-                                        <td><fmt:formatDate pattern = "dd/MM/yyyy HH:mm:ss" value = "${matr.cadastradoEm}" /></td>
-                                    </tr>
-                                </c:forEach>      
-                            </tbody>
-                        </table>
                     </div>
                 </div><!--/.col-xs-12.col-sm-9-->
 
                 <c:import url="menu-lateral-matriculas.jsp" />
+
+                <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Total</div>
+                        <div class="panel-body">
+                            Total pago: <fmt:formatNumber type="currency" value = "${pagos}" />
+                        </div>                        
+                        <div class="panel-body">
+                            Total pendente: <fmt:formatNumber type="currency" value = "${pendentes}" />
+                        </div>
+                    </div>
+                </div><!--/.sidebar-offcanvas-->
             </div><!--/row-->
         </div><!--/.container-->
+
+        <div class="container">
+            <h2 class="sub-header">Matrículas</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Aluno</th>
+                            <th>Unidade</th>
+                            <th>Curso</th>
+                            <th>Valor</th>
+                            <th>Inicio</th>
+                            <th>Pagamento</th>
+                            <th>Matriculado por</th>
+                            <th>Matriculado em</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${matriculas}" var="matr">                                
+                            <tr>
+                                <td><c:out value="${matr.id}" /></td>
+                                <td><c:out value="${matr.aluno.nome}" /></td>
+                                <td><c:out value="${matr.unidade.nome}" /></td>
+                                <td><c:out value="${matr.curso.nome}" /></td>
+                                <td><fmt:formatNumber type="currency" value = "${matr.curso.valor}" /></td>
+                                <td><fmt:formatDate pattern = "dd/MM/yyyy" value = "${matr.inicio}" /></td>
+                                <td><c:out value="${matr.pagamento}" /></td>
+                                <td><c:out value="${matr.cadastradoPor}" /></td>                                        
+                                <td><fmt:formatDate pattern = "dd/MM/yyyy HH:mm:ss" value = "${matr.cadastradoEm}" /></td>
+                            </tr>
+                        </c:forEach>      
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="${pageContext.request.contextPath}/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>

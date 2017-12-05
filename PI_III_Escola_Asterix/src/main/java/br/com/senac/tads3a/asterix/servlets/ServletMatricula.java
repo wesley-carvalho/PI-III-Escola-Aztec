@@ -70,7 +70,7 @@ public class ServletMatricula extends HttpServlet {
                 rd.forward(request, response);
                 break;                
             case "/matricula_excluir":
-                matriculaID = Integer.parseInt(request.getParameter("matriculaId"));
+                matriculaID = Integer.parseInt(request.getParameter("id"));
 
                 boolean resp = ServicoMatricula.excluir(matriculaID);
 

@@ -1,10 +1,14 @@
 package br.com.senac.tads3a.asterix.servlets;
 
+import br.com.senac.tads3a.asterix.classes.Matricula;
 import br.com.senac.tads3a.asterix.servicos.ServicoAluno;
 import br.com.senac.tads3a.asterix.servicos.ServicoCurso;
 import br.com.senac.tads3a.asterix.servicos.ServicoMatricula;
 import br.com.senac.tads3a.asterix.servicos.ServicoUnidade;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -69,7 +73,21 @@ public class ServletSistema extends HttpServlet {
                 rd.forward(request, response);
                 break;
             case "/relatorio":
-                request.setAttribute("matriculas", ServicoMatricula.listar());
+                List<Matricula> matriculas = ServicoMatricula.listar();
+                BigDecimal pendentes = new BigDecimal("0");
+                BigDecimal pagos = new BigDecimal("0");
+
+                for (Matricula matricula : matriculas) {
+                    if (matricula.getPagamento().equals("pago")) {                        
+                        pagos = matricula.getCurso().getValor().add(pagos);                        
+                    } else if (matricula.getPagamento().equals("pendente")) {
+                        pendentes = matricula.getCurso().getValor().add(pendentes);                         
+                    }                    
+                }
+
+                request.setAttribute("matriculas", matriculas);
+                request.setAttribute("pendentes", pendentes);
+                request.setAttribute("pagos", pagos);
 
                 rd = request.getRequestDispatcher("/WEB-INF/jsp/relatorio.jsp");
                 rd.forward(request, response);
@@ -98,5 +116,17 @@ public class ServletSistema extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String context = request.getServletPath();
+        RequestDispatcher rd;
+
+        switch (context) {
+            case "/delete":
+                request.setAttribute("way", request.getParameter("way"));
+                request.setAttribute("id", request.getParameter("id"));
+
+                rd = request.getRequestDispatcher("/WEB-INF/jsp/delete.jsp");
+                rd.forward(request, response);
+                break;
+        }
     }
 }

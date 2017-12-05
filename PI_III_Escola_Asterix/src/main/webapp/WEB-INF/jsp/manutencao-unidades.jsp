@@ -65,14 +65,15 @@
                                             <td>
                                                 <form action="${pageContext.request.contextPath}/unidade_alterar" method="post">
                                                     <input type="hidden" name="unidadeId" value="<c:out value="${unidade.id}" />">
-                                                    
+
                                                     <button class="btn btn-xs btn-warning" type="submit"><spam class="glyphicon glyphicon-pencil"></spam></button>
                                                 </form>                                                                                               
                                             </td>
-                                            <td>
-                                                <form action="${pageContext.request.contextPath}/unidade_excluir" method="post">
-                                                    <input type="hidden" name="unidadeId" value="<c:out value="${unidade.id}" />">
-                                                    
+                                            <td>                                                
+                                                <form action="${pageContext.request.contextPath}/delete" method="post">
+                                                    <input type="hidden" name="way" value="/unidade_excluir">
+                                                    <input type="hidden" name="id" value="<c:out value="${unidade.id}" />">                                                    
+
                                                     <button class="btn btn-xs btn-danger" type="submit"><spam class="glyphicon glyphicon-remove"></spam></button>
                                                 </form>
                                             </td> 
