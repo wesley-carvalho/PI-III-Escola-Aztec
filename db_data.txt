@@ -1,0 +1,42 @@
+INSERT INTO aluno (nome, documento, dtNascimento, endereco, cidade, estado, email, telefone, celular, cadastradoEm, cadastradoPor, enabled) 
+VALUES ('Wesley Carvalho', '111.222.333-44', '1994-02-22', 'Rua ABC, 123', 'São Paulo', 'São Paulo', 'test@test', '1234-1234', '1234-1234', '2017-01-05 10:50:40.394', 'wesley', 'true');
+INSERT INTO aluno (nome, documento, dtNascimento, endereco, cidade, estado, email, telefone, celular, cadastradoEm, cadastradoPor, enabled) 
+VALUES ('Edson Oguma', '222.333.444-55', '1989-03-12', 'Rua CBA, 321', 'São Paulo', 'São Paulo', 'test@test', '1234-1234', '1234-1234', '2017-01-10 12:52:40.394', 'edson', 'true');
+INSERT INTO aluno (nome, documento, dtNascimento, endereco, cidade, estado, email, telefone, celular, cadastradoEm, cadastradoPor, enabled) 
+VALUES ('Igor Alves', '333.444.555-66', '1987-04-27', 'Rua CDE, 77', 'São Paulo', 'São Paulo', 'test@test', '1234-1234', '1234-1234', '2017-01-15 14:54:44.394', 'igor', 'true');
+INSERT INTO aluno (nome, documento, dtNascimento, endereco, cidade, estado, email, telefone, celular, cadastradoEm, cadastradoPor, enabled) 
+VALUES ('Arthur Hardman', '444.333.222-11', '1991-07-05', 'Rua EFG, 06', 'São Paulo', 'São Paulo', 'test@test', '1234-1234', '1234-1234', '2017-01-20 16:58:40.394', 'arthur', 'true');
+
+INSERT INTO curso (nome, categoria, descricao, valor, cadastradoEm, cadastradoPor, enabled) 
+VALUES ('Ping Pong', 'educacao a distancia', 'Atividade Fisíca', 350, '2017-02-05 10:21:15.514', 'wesley', 'true');
+INSERT INTO curso (nome, categoria, descricao, valor, cadastradoEm, cadastradoPor, enabled) 
+VALUES ('Datilografia', 'profissionalizante', 'Extracurricular', 250, '2017-02-10 12:23:15.514', 'edson', 'true');
+INSERT INTO curso (nome, categoria, descricao, valor, cadastradoEm, cadastradoPor, enabled) 
+VALUES ('Manutenção de Video K7', 'curso tecnico', 'Reparos', 550, '2017-02-15 14:25:15.514', 'igor', 'true');
+INSERT INTO curso (nome, categoria, descricao, valor, cadastradoEm, cadastradoPor, enabled) 
+VALUES ('Os perigos do Orkut', 'ensino a distancia', 'Conscientização', 150, '2017-02-20 16:09:10.947', 'arthur', 'true');
+
+INSERT INTO unidade (nome, endereco, cidade, estado, email, telefone1, telefone2, cadastradoEm, cadastradoPor, enabled) 
+VALUES ('Matriz', 'Rua ABC, 123', 'São Paulo', 'São Paulo', 'test@test', '1234-1234', '4321-4321', '2017-03-05 10:01:10.947', 'wesley', 'true');
+INSERT INTO unidade (nome, endereco, cidade, estado, email, telefone1, telefone2, cadastradoEm, cadastradoPor, enabled) 
+VALUES ('Unidade Nordeste', 'Rua ABC, 123', 'Recife', 'Pernambuco', 'test@test', '1234-1234', '4321-4321', '2017-03-10 12:03:10.947', 'edson', 'true');
+INSERT INTO unidade (nome, endereco, cidade, estado, email, telefone1, telefone2, cadastradoEm, cadastradoPor, enabled) 
+VALUES ('Unidade Sul', 'Rua ABC, 123', 'Porto Alegre', 'Rio Grande do Sul', 'test@test', '1234-1234', '4321-4321', '2017-03-15 14:05:10.947', 'igor', 'true');
+
+INSERT INTO funcionario (nome, documento, dtNascimento, endereco, cidade, estado, email, cargo, username, hashsenha, cadastradoEm, cadastradoPor, enabled)
+VALUES ('Wesley Carvalho', '111.222.333-44', '1994-02-22', 'Rua ABC, 123', 'São Paulo', 'São Paulo', 'test@test', 'gerente de vendas', 'wesley', '0', '2017-04-05 10:24:11.169', 'edson', 'true');
+INSERT INTO funcionario (nome, documento, dtNascimento, endereco, cidade, estado, email, cargo, username, hashsenha, cadastradoEm, cadastradoPor, enabled)
+VALUES ('Edson Oguma', '222.333.444-55', '1989-03-12', 'Rua CBA, 321', 'São Paulo', 'São Paulo', 'test@test', 'assistente de ti', 'edson', '0', '2017-04-10 12:34:11.169', 'wesley', 'true');
+INSERT INTO funcionario (nome, documento, dtNascimento, endereco, cidade, estado, email, cargo, username, hashsenha, cadastradoEm, cadastradoPor, enabled)
+VALUES ('Igor Alves', '333.444.555-66', '1987-04-27', 'Rua CDE, 77', 'São Paulo', 'São Paulo', 'test@test', 'gerente de retaguarda', 'igor', '0', '2017-04-15 14:54:21.169', 'arthur', 'true');
+INSERT INTO funcionario (nome, documento, dtNascimento, endereco, cidade, estado, email, cargo, username, hashsenha, cadastradoEm, cadastradoPor, enabled)
+VALUES ('Arthur Hardman', '444.333.222-11', '1991-07-05', 'Rua EFG, 06', 'São Paulo', 'São Paulo', 'test@test', 'diretor', 'arthur', '0', '2017-04-20 16:54:31.169', 'igor', 'true');
+
+INSERT INTO matricula (idAluno, idUnidade, idCurso, dtInicio, pagamento, cadastradoEm, cadastradoPor, enabled) 
+VALUES (1, 2, 3, '2017-02-15', 'pago', '2017-05-05 10:54:11.169', 'wesley', 'true');
+INSERT INTO matricula (idAluno, idUnidade, idCurso, dtInicio, pagamento, cadastradoEm, cadastradoPor, enabled) 
+VALUES (2, 1, 1, '2017-02-15', 'pago', '2017-05-10 12:54:11.169', 'edson', 'true');
+INSERT INTO matricula (idAluno, idUnidade, idCurso, dtInicio, pagamento, cadastradoEm, cadastradoPor, enabled) 
+VALUES (3, 3, 2, '2017-02-15', 'pago', '2017-05-15 14:54:11.169', 'igor', 'true');
+INSERT INTO matricula (idAluno, idUnidade, idCurso, dtInicio, pagamento, cadastradoEm, cadastradoPor, enabled) 
+VALUES (4, 2, 4, '2017-02-15', 'pago', '2017-05-20 16:14:11.169', 'arthur', 'true');

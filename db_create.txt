@@ -1,0 +1,15 @@
+*****************************************************************
+*********************** CRIAR BANCO DE DADOS ********************
+*****************************************************************
+nome do banco de dados: "AsterixDB"
+
+nome do usuario: "root"
+
+senha: "root"
+*****************************************************************
+clique em propriedades...
+*****************************************************************
+instalação do java DB: "C:\Program Files\glassfish-4.1.1\javadb"
+
+localização do banco de dados: ...\PI-III---Astec-Escola-Asterix\PI_III_Escola_Asterix\src\main\database
+*****************************************************************
