@@ -96,8 +96,9 @@ public class Authorization {
                 }
                 break;
             case "/manutencao-matriculas":
-                if (funcionario.temPapel("gerente de vendas")
-                        || funcionario.temPapel("gerente de ti")) {
+                if (funcionario.temPapel("gerente de ti")
+                        || funcionario.temPapel("gerente de vendas")
+                        || funcionario.temPapel("gerente de retaguarda")) {
                     return true;
                 }
                 break;
